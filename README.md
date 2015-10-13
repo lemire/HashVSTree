@@ -1,4 +1,5 @@
-== Memory usage: HashMap vs TreeMap
+Memory usage: HashMap vs TreeMap
+==
 
 Do hash table use more memory than trees? 
 
@@ -35,6 +36,8 @@ Number of entries: 1000000
 ==============
 ```
 
+These results suggest that a TreeMap is no more concise than a HashMap.
 
-
+Warning: This test may or may not be reliable. Please review my source
+code for yourself.
 
