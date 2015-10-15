@@ -9,6 +9,11 @@
 
     <name>Memory benchmark : HashVSTree</name>
 
+    <properties>
+            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+            <jammversion>0.3.1</jammversion>
+            <javac.target>1.7</javac.target>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -18,21 +23,31 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>net.sourceforge.sizeof</groupId>
-            <artifactId>sizeof</artifactId>
-            <version>0.3</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/lib/SizeOf.jar</systemPath>
+            <groupId>com.github.jbellis</groupId>
+            <artifactId>jamm</artifactId>
+            <version>${jammversion}</version>
         </dependency>
+
     </dependencies>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <javac.target>1.6</javac.target>
-    </properties>
 
     <build>
+
         <plugins>
+            <plugin>
+              <artifactId>maven-dependency-plugin</artifactId>
+              <executions>
+                <execution>
+                  <goals>
+                    <goal>copy-dependencies</goal>
+                  </goals>
+                  <configuration>
+                    <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                  </configuration>
+                </execution>
+              </executions>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -49,20 +64,14 @@
                 <version>2.18.1</version>
                 <configuration>
                     <includes>
+                        <include>**/*Spec.*</include>
+                        <include>**/*Test.*</include>
                         <include>**/*Benchmark.java</include>
                     </includes>
-                    <argLine>-javaagent:${basedir}/lib/SizeOf.jar</argLine>
+                    <argLine>-javaagent:${project.build.directory}/lib/jamm-${jammversion}.jar</argLine>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
-    <repositories>
-        <repository>
-            <id>pub-libs</id>
-            <name>pub-libs-local</name>
-            <url>https://metamx.artifactoryonline.com/metamx/pub-libs-releases-local</url>
-        </repository>
-    </repositories>
 
 </project>
