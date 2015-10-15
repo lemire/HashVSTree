@@ -27,6 +27,12 @@
             <artifactId>jamm</artifactId>
             <version>${jammversion}</version>
         </dependency>
+                <dependency>
+                    <groupId>it.unimi.dsi</groupId>
+                    <artifactId>fastutil</artifactId>
+                    <version>[7.0,)</version>
+                </dependency>
+
 
     </dependencies>
 
