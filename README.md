@@ -14,31 +14,31 @@ $ mvn -q test
 memory usage of an empty string (deep): 40
 memory usage of an empty string: 24
 
-==============
-Number of keys (strings) : 10000
+=============
+Number of keys (strings) : 100000
 We report the number bytes per key-value pair.
-Hash map size = 134.6
-hash table size = 137.8
-tree map size = 136.0
-concurrent hash map size = 134.6
-linked hash map size = 142.6
-skip list size = 132.0
-fastutil (open addressing) size = 109.1
-array size = 104.0
+Hash map size = 152.9
+hash table size = 150.3
+tree map size = 150.4
+concurrent hash map size = 152.9
+linked hash map size = 160.9
+skip list size = 146.3
+fastutil (open addressing) size = 131.4
+array size = 118.4
 ==============
 memory usage of an Integer (deep): 16
 memory usage of an Integer: 16
 
 ==============
-Number of keys (integers) : 10000
+Number of keys (integers) : 100000
 We report the number bytes per key-value pair.
-Hash map size = 70.4
-hash table size = 71.8
-tree map size = 71.8
-concurrent hash map size = 70.4
-linked hash map size = 78.4
-skip list size = 68.2
-fastutil OpenHashMap (open addressing, native ints) size = 13.1
+Hash map size = 74.5
+hash table size = 72.0
+tree map size = 72.0
+concurrent hash map size = 74.5
+linked hash map size = 82.5
+skip list size = 67.9
+fastutil OpenHashMap (open addressing, native ints) size = 21.0
 fastutil ArrayMap (native ints) size = 8.0
 fastutil RBTreeMap (native ints) size = 32.0
 fastutil AVLTreeMap (native ints) size = 32.0
