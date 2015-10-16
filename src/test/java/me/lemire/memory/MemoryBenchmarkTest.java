@@ -16,6 +16,8 @@ import java.text.DecimalFormat;
 
 public class MemoryBenchmarkTest {
 
+   final int N = 100000;
+
 
     @Test
     public void benchmark() throws Exception {
@@ -24,15 +26,15 @@ public class MemoryBenchmarkTest {
         System.out.println("memory usage of an Integer: "+meter.measure(new Integer(0)));
 
         DecimalFormat df = new DecimalFormat("0.0");
-        for(int s = 10000; s<=10000; s*=10) {
-            HashMap<Integer,Integer> hash = new HashMap<Integer,Integer>(10000);
+        for(int s = N; s<=N; s*=10) {
+            HashMap<Integer,Integer> hash = new HashMap<Integer,Integer>(N);
             TreeMap<Integer,Integer> tree = new TreeMap<Integer,Integer>();
-            Hashtable<Integer,Integer> lhash = new Hashtable<Integer,Integer>(10000);
-            ConcurrentHashMap<Integer,Integer> chash = new ConcurrentHashMap<Integer,Integer>(10000);
-            LinkedHashMap<Integer,Integer> lihash = new LinkedHashMap<Integer,Integer>(10000);
+            Hashtable<Integer,Integer> lhash = new Hashtable<Integer,Integer>(N);
+            ConcurrentHashMap<Integer,Integer> chash = new ConcurrentHashMap<Integer,Integer>(N);
+            LinkedHashMap<Integer,Integer> lihash = new LinkedHashMap<Integer,Integer>(N);
             ConcurrentSkipListMap<Integer,Integer> skip = new ConcurrentSkipListMap<Integer,Integer>();
-            Int2IntMap fastutilOhm = new Int2IntOpenHashMap(10000);
-            Int2IntMap fastutilAm = new Int2IntArrayMap(10000);
+            Int2IntMap fastutilOhm = new Int2IntOpenHashMap(N);
+            Int2IntMap fastutilAm = new Int2IntArrayMap(N);
             Int2IntMap fastutilRb = new Int2IntRBTreeMap();
             Int2IntMap fastutilAVL = new Int2IntAVLTreeMap();
             Integer[] arrObj = new Integer[2*s];
@@ -79,7 +81,6 @@ public class MemoryBenchmarkTest {
                                 + "\nskip list size = " + skipsize
                                 + "\nfastutil OpenHashMap (open addressing, native ints) size = " + fastutilsizeOhm
                                 + "\nfastutil ArrayMap (native ints) size = " + fastutilsizeAm
-                                + "\nfastutil ArrayMap (native ints) size = " + fastutilsizeAm
                                 + "\nfastutil RBTreeMap (native ints) size = " + fastutilsizeRb
                                 + "\nfastutil AVLTreeMap (native ints) size = " + fastutilsizeAVL
                                 + "\narrayObjWrapper size = " + arrObjsize
@@ -98,7 +99,7 @@ public class MemoryBenchmarkTest {
         System.out.println("memory usage of an empty string (deep): "+meter.measureDeep(new String()));
         System.out.println("memory usage of an empty string: "+meter.measure(new String()));
         DecimalFormat df = new DecimalFormat("0.0");
-        for(int s = 10000; s<=10000; s*=10) {
+        for(int s = N; s<=N; s*=10) {
             HashMap<String,String> hash = new HashMap<String,String>();
             TreeMap<String,String> tree = new TreeMap<String,String>();
             Hashtable<String,String> lhash = new Hashtable<String,String>();
