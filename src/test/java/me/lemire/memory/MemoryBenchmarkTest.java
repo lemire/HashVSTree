@@ -33,6 +33,8 @@ public class MemoryBenchmarkTest {
             ConcurrentSkipListMap<Integer,Integer> skip = new ConcurrentSkipListMap<Integer,Integer>();
             Int2IntMap fastutilOhm = new Int2IntOpenHashMap(10000);
             Int2IntMap fastutilAm = new Int2IntArrayMap(10000);
+            Int2IntMap fastutilRb = new Int2IntRBTreeMap();
+            Int2IntMap fastutilAVL = new Int2IntAVLTreeMap();
             Integer[] arrObj = new Integer[2*s];
             int[] arrPrimitive = new int[2*s];
 
@@ -45,6 +47,8 @@ public class MemoryBenchmarkTest {
                 skip.put(k,k);
                 fastutilOhm.put(k,k);
                 fastutilAm.put(k,k);
+                fastutilRb.put(k,k);
+                fastutilAVL.put(k,k);
                 arrObj[2*k] = new Integer(k);
                 arrObj[2*k+1] = new Integer(k);
                 arrPrimitive[2*k] = k;
@@ -61,6 +65,8 @@ public class MemoryBenchmarkTest {
             String skipsize = df.format(meter.measureDeep(skip)*1.0/s);
             String fastutilsizeOhm = df.format(meter.measureDeep(fastutilOhm)*1.0/s);
             String fastutilsizeAm = df.format(meter.measureDeep(fastutilAm)*1.0/s);
+            String fastutilsizeRb = df.format(meter.measureDeep(fastutilRb)*1.0/s);
+            String fastutilsizeAVL = df.format(meter.measureDeep(fastutilAVL)*1.0/s);
 
             System.out.println("==============");
             System.out.println("Number of keys (integers) : "+s);
@@ -73,6 +79,9 @@ public class MemoryBenchmarkTest {
                                 + "\nskip list size = " + skipsize
                                 + "\nfastutil OpenHashMap (open addressing, native ints) size = " + fastutilsizeOhm
                                 + "\nfastutil ArrayMap (native ints) size = " + fastutilsizeAm
+                                + "\nfastutil ArrayMap (native ints) size = " + fastutilsizeAm
+                                + "\nfastutil RBTreeMap (native ints) size = " + fastutilsizeRb
+                                + "\nfastutil AVLTreeMap (native ints) size = " + fastutilsizeAVL
                                 + "\narrayObjWrapper size = " + arrObjsize
                                 + "\narrayPrimitiveWrapper size = " + arrPrimitiveSize
                                 );

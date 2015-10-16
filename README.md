@@ -40,6 +40,8 @@ linked hash map size = 78.4
 skip list size = 68.2
 fastutil OpenHashMap (open addressing, native ints) size = 13.1
 fastutil ArrayMap (native ints) size = 8.0
+fastutil RBTreeMap (native ints) size = 32.0
+fastutil AVLTreeMap (native ints) size = 32.0
 arrayObjWrapper size = 40.0
 arrayPrimitiveWrapper size = 8.0
 ==============
