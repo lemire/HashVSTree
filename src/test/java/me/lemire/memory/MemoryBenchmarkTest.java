@@ -24,6 +24,9 @@ public class MemoryBenchmarkTest {
         MemoryMeter meter = new MemoryMeter().ignoreKnownSingletons();
         System.out.println("memory usage of an Integer (deep): "+meter.measureDeep(new Integer(0)));
         System.out.println("memory usage of an Integer: "+meter.measure(new Integer(0)));
+        for(int k = 0; k <1024; ++k) {
+          System.out.println(k+" "+meter.measureDeep(new boolean[k]));
+        }
 
         DecimalFormat df = new DecimalFormat("0.0");
         for(int s = N; s<=N; s*=10) {
